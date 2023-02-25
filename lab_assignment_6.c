@@ -3,23 +3,19 @@
 
 int search(int numbers[], int low, int high, int value) {
     if (low > high) {
-        // Base case: value not found
         return -1;
     }
 
-    int mid = (low + high) / 2;
+    int middle = (low + high) / 2;
 
-    if (numbers[mid] == value) {
-        // Base case: value found at middle index
-        return mid;
+    if (numbers[middle] == value) {
+        return middle;
     }
-    else if (numbers[mid] > value) {
-        // Recursive case: search left half of array
-        return search(numbers, low, mid - 1, value);
+    else if (numbers[middle] > value) {
+        return search(numbers, low, middle - 1, value);
     }
     else {
-        // Recursive case: search right half of array
-        return search(numbers, mid + 1, high, value);
+        return search(numbers, middle + 1, high, value);
     }
 }
 
